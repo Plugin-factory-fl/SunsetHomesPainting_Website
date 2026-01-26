@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Sunset Home Painting for your interior and exterior painting needs in St. Augustine, Florida. Schedule a consultation or appointment today.">
+    <meta name="keywords" content="contact, schedule appointment, painting consultation, St. Augustine painter contact">
+    <title>Contact Us - Sunset Home Painting | St. Augustine, FL</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="Sunset Home Painting Home">
+                <img src="images/Sunset Home 2.PNG" alt="Sunset Home Painting Logo" class="logo-img">
+                <span>Sunset Home Painting</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule-appointment.html">Schedule Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html" aria-current="page">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="page-section" style="margin-top: 100px;" aria-labelledby="contact-heading">
+        <div class="container">
+            <h2 id="contact-heading" class="text-center mb-5">Get In Touch</h2>
+            
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-form">
+                        <h3 class="mb-4" style="color: var(--sunset-orange);">Send Us a Message</h3>
+                        <form id="contactForm" action="/submit-form" method="POST" novalidate>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required aria-required="true" aria-describedby="nameFeedback">
+                                <div id="nameFeedback" class="invalid-feedback"></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required aria-required="true" aria-describedby="emailFeedback">
+                                <div id="emailFeedback" class="invalid-feedback"></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required aria-required="true" aria-describedby="phoneFeedback">
+                                <div id="phoneFeedback" class="invalid-feedback"></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required aria-required="true" aria-describedby="messageFeedback"></textarea>
+                                <div id="messageFeedback" class="invalid-feedback"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-info">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:3864053015" style="color: var(--white);">(386) 405-3015</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:sunsethomepainting@gmail.com" style="color: var(--white);">sunsethomepainting@gmail.com</a>
+                        </p>
+                        <p class="mt-4">
+                            <strong>Business Hours:</strong><br>
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sunset Home Painting</h4>
+                    <p>Your trusted painting experts in St. Augustine, Florida. Family-owned and operated with over 10 years of experience.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="schedule-appointment.html">Schedule Appointment</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> <a href="tel:3864053015">(386) 405-3015</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:sunsethomepainting@gmail.com">sunsethomepainting@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/19x4X4LCrX/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sunset Home Painting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Sticky CTA Button -->
+    <a href="schedule-appointment.html" class="sticky-cta-button" aria-label="Schedule Appointment Now">
+        <i class="fas fa-calendar-check"></i>
+        <span>Schedule Appointment Now</span>
+    </a>
+</body>
+</html>
