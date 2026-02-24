@@ -101,7 +101,7 @@ body {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-yellow) 50%, var(--sunset-blue) 100%);
-    padding: 2rem 1.5rem;
+    padding: 1rem 0.75rem;
     text-align: center;
     margin-top: 76px; /* Account for fixed navbar */
     color: var(--white);
@@ -376,11 +376,11 @@ body {
 
 /* Contact Info */
 .contact-info {
-    background-color: var(--white);
-    color: var(--text-dark);
+    background-color: #1e1e1e;
+    color: var(--white);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 3rem;
     border-left: 4px solid var(--sunset-orange);
 }
@@ -388,23 +388,23 @@ body {
 .contact-info h3 {
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
-    color: var(--sunset-orange);
+    color: var(--white);
 }
 
 .contact-info p {
     font-size: 1.1rem;
     margin-bottom: 0.75rem;
-    color: var(--text-dark);
+    color: var(--white);
 }
 
 .contact-info a {
-    color: var(--sunset-orange);
+    color: var(--sunset-yellow);
     font-weight: 600;
     text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: var(--sunset-blue);
+    color: var(--sunset-orange);
     text-decoration: underline;
 }
 
@@ -541,7 +541,7 @@ body {
     }
     
     .hero-section {
-        padding: 1.25rem 1rem;
+        padding: 0.75rem 0.5rem;
     }
     
     .welcome-section h1 {
