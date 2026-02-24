@@ -101,7 +101,7 @@ body {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-yellow) 50%, var(--sunset-blue) 100%);
-    padding: 4rem 2rem;
+    padding: 2rem 1.5rem;
     text-align: center;
     margin-top: 76px; /* Account for fixed navbar */
     color: var(--white);
@@ -376,27 +376,41 @@ body {
 
 /* Contact Info */
 .contact-info {
-    background: linear-gradient(135deg, var(--sunset-orange) 0%, var(--sunset-yellow) 100%);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--text-dark);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 3rem;
+    border-left: 4px solid var(--sunset-orange);
 }
 
 .contact-info h3 {
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
+    color: var(--sunset-orange);
 }
 
 .contact-info p {
     font-size: 1.1rem;
     margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.contact-info a {
+    color: var(--sunset-orange);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--sunset-blue);
+    text-decoration: underline;
 }
 
 .contact-info i {
     margin-right: 0.5rem;
-    color: var(--sunset-blue);
+    color: var(--sunset-orange);
 }
 
 /* Calendly Section */
@@ -527,7 +541,7 @@ body {
     }
     
     .hero-section {
-        padding: 2.5rem 1.5rem;
+        padding: 1.25rem 1rem;
     }
     
     .welcome-section h1 {
