@@ -109,7 +109,7 @@ body {
 }
 
 .hero-quote {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     font-style: italic;
     line-height: 1.4;
@@ -527,7 +527,7 @@ body {
     }
     
     .hero-quote {
-        font-size: 1.5rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -537,9 +537,9 @@ body {
     }
     
     .hero-quote {
-        font-size: 1.3rem;
+        font-size: 0.65rem;
     }
-    
+
     .hero-section {
         padding: 0.75rem 0.5rem;
     }
@@ -571,9 +571,9 @@ body {
 
 @media (max-width: 576px) {
     .hero-quote {
-        font-size: 1.1rem;
+        font-size: 0.55rem;
     }
-    
+
     .review-text {
         font-size: 1.1rem;
     }
