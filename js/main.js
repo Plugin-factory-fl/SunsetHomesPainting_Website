@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize form validation
     initFormValidation();
     
-    // Set active nav link based on current page
-    setActiveNavLink();
 });
 
 // Gallery Modal Functions
@@ -245,23 +243,6 @@ function showFormSuccess() {
     setTimeout(() => {
         successMessage.remove();
     }, 5000);
-}
-
-// Set active navigation link based on current page
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (linkHref === currentPage || 
-            (currentPage === '' && linkHref === 'index.html') ||
-            (currentPage === 'index.html' && linkHref === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
 }
 
 // Smooth scroll for anchor links (if needed)

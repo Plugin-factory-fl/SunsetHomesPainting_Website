@@ -175,17 +175,24 @@ def article_schema(headline, desc, url):
 </script>"""
 
 
+def nav_mount(depth=0):
+    pre = prefix(depth)
+    return f"""  <motion id="site-nav-mount"></motion>
+  <script src="{pre}js/site-nav.js"></script>""".replace("<motion id", "<motion id").replace("<motion id=\"site-nav-mount\"></motion>", '<div id="site-nav-mount"></div>')
+
+
 def page_html(title, desc, path, body, active, depth=0, article=False, h1=None):
     art_schema = ""
     if article:
         art_schema = article_schema(h1 or title, desc, f"{SITE}/{path.lstrip('/')}")
+    body_class = "inner-page blog-article" if article else "inner-page"
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 {head_block(title, desc, path, depth, article=article, article_schema_extra=art_schema)}
 </head>
-<body class="inner-page blog-article">
-{nav_html(active, depth)}
+<body class="{body_class}">
+{nav_mount(depth)}
 {body}
 {footer_html(depth)}
 </body>
