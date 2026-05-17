@@ -368,8 +368,36 @@ h5 {
     }
 }
 
+.home-call-banner {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--sunset-indigo) 0%, #1a3558 100%);
+    border-top: 4px solid var(--sunset-orange);
+    border-bottom: 4px solid var(--sunset-orange);
+}
+
+.home-call-banner__heading {
+    margin: 0;
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
+    font-size: clamp(1.75rem, 5vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+}
+
+.home-call-banner__link {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.home-call-banner__link:hover,
+.home-call-banner__link:focus-visible {
+    color: var(--sunset-gold);
+}
+
 .welcome-section {
-    padding: 6rem 2rem 4.75rem;
+    padding: 3.5rem 2rem 4.75rem;
     text-align: center;
     background: transparent;
 }
