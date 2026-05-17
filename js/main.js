@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHomeHeroSlideshow();
 });
 
-// Homepage hero slideshow (2.jpeg → 9.jpeg → 5.jpg)
+// Homepage hero slideshow (2.jpeg + before/after pairs)
 function initHomeHeroSlideshow() {
     const root = document.querySelector('.home-hero-slideshow');
     if (!root) return;
