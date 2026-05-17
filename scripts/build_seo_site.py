@@ -5,6 +5,9 @@ import os
 SITE = "https://sunsethomepainting.com"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ANALYTICS_HEAD = """  <script src="/js/site-config.js"></script>
+  <script src="/js/analytics.js"></script>"""
+
 
 def prefix(depth):
     return "../" * depth
@@ -29,7 +32,8 @@ def head_block(title, desc, path, depth=0, article=False, article_schema_extra="
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="{pre}css/style.css?v=3">
-{schema}"""
+{schema}
+{ANALYTICS_HEAD}"""
 
 
 SCHEMA_BUSINESS = """  <script type="application/ld+json">
