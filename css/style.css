@@ -836,23 +836,32 @@ select:focus {
 .service-card-showcase {
     padding: 0;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .service-card-image-link {
     display: block;
+    position: relative;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    background: #e8ecf2;
 }
 
 .service-card-image {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 240px;
+    height: 100%;
+    max-width: none;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.35s ease;
 }
 
 .service-card-showcase:hover .service-card-image {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .service-card-body {
