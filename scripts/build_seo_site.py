@@ -176,9 +176,10 @@ def article_schema(headline, desc, url):
 
 
 def nav_mount(depth=0):
-    pre = prefix(depth)
-    return f"""  <motion id="site-nav-mount"></motion>
-  <script src="{pre}js/site-nav.js"></script>""".replace("<motion id", "<motion id").replace("<motion id=\"site-nav-mount\"></motion>", '<div id="site-nav-mount"></div>')
+    return (
+        '  <div id="site-nav-mount"></div>\n\n'
+        '  <script src="/js/site-nav.js?v=5" defer></script>'
+    )
 
 
 def page_html(title, desc, path, body, active, depth=0, article=False, h1=None):
