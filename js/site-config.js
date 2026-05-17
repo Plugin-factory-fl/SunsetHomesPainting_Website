@@ -6,4 +6,4 @@
  * 3. Copy the Measurement ID (format: G-XXXXXXXXXX)
  * 4. Paste it below and deploy
  */
-window.SUNSET_GA_ID = 'G-1WPZ1N1KGM';
+window.SUNSET_GA_ID = 'G-CF667F9SM2';

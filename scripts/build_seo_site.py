@@ -6,12 +6,12 @@ SITE = "https://sunsethomepainting.com"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ANALYTICS_HEAD = """  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WPZ1N1KGM"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF667F9SM2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-1WPZ1N1KGM');
+    gtag('config', 'G-CF667F9SM2');
   </script>"""
 
 
