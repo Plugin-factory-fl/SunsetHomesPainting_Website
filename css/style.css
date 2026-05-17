@@ -43,6 +43,18 @@ h5 {
     letter-spacing: 0.02em;
 }
 
+.site-header {
+    z-index: 1030;
+}
+
+.site-header .navbar {
+    background: rgba(17, 22, 31, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(7, 10, 15, 0.25);
+    padding: 0.65rem 0;
+    margin: 0;
+}
+
 .navbar {
     background: rgba(17, 22, 31, 0.92);
     backdrop-filter: blur(8px);
@@ -143,7 +155,7 @@ h5 {
     background: linear-gradient(120deg, #1e2a3f 0%, #2f3f58 45%, #4d5f7e 100%);
     padding: 6.5rem 0 5rem;
     text-align: center;
-    margin-top: 76px;
+    margin-top: 0;
     color: var(--white);
     box-shadow: 0 14px 35px rgba(24, 32, 45, 0.26);
     position: relative;
@@ -368,63 +380,94 @@ h5 {
     }
 }
 
-.home-call-banner {
-    padding: 2rem 1.5rem;
-    text-align: center;
+.site-call-banner {
+    padding: 0.55rem 1rem;
     background: linear-gradient(135deg, var(--sunset-indigo) 0%, #1a3558 100%);
-    border-top: 4px solid var(--sunset-orange);
-    border-bottom: 4px solid var(--sunset-orange);
+    border-bottom: 3px solid var(--sunset-orange);
 }
 
-.home-call-banner__label {
-    margin: 0 0 0.75rem;
-    font-family: 'Manrope', 'Segoe UI', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sunset-gold);
-}
-
-.home-call-banner__phones {
+.site-call-banner__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem 1.25rem;
+    gap: 0.5rem 1.25rem;
+    text-align: center;
 }
 
-.home-call-banner__link {
+.site-call-banner__label {
+    margin: 0;
     font-family: 'Manrope', 'Segoe UI', sans-serif;
-    font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sunset-gold);
+    white-space: nowrap;
+}
+
+.site-call-banner__phones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+}
+
+.site-call-banner__link {
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
+    font-size: clamp(1rem, 2.8vw, 1.35rem);
     font-weight: 800;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     line-height: 1.2;
     color: var(--white);
     text-decoration: none;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
-.home-call-banner__sep {
-    color: rgba(255, 255, 255, 0.45);
+.site-call-banner__sep {
+    color: rgba(255, 255, 255, 0.4);
     font-weight: 300;
-    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-size: 1rem;
 }
 
-@media (max-width: 480px) {
-    .home-call-banner__sep {
+.site-call-banner__link:hover,
+.site-call-banner__link:focus-visible {
+    color: var(--sunset-gold);
+}
+
+@media (max-width: 576px) {
+    .site-call-banner__inner {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .site-call-banner__sep {
         display: none;
     }
 
-    .home-call-banner__phones {
+    .site-call-banner__phones {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.25rem;
     }
 }
 
-.home-call-banner__link:hover,
-.home-call-banner__link:focus-visible {
-    color: var(--sunset-gold);
+/* Offset fixed header (call bar + navbar) */
+body.has-site-header {
+    padding-top: 8.75rem;
+}
+
+@media (max-width: 991px) {
+    body.has-site-header {
+        padding-top: 9.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body.has-site-header {
+        padding-top: 10.25rem;
+    }
 }
 
 .welcome-section {
@@ -495,7 +538,7 @@ h5 {
 }
 
 .page-top-section {
-    margin-top: 110px;
+    margin-top: 1.5rem;
 }
 
 .page-section {
@@ -509,7 +552,7 @@ h5 {
 }
 
 .page-section.page-top-section {
-    margin-top: 9.5rem;
+    margin-top: 1.5rem;
 }
 
 .page-section:hover {

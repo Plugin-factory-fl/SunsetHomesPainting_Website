@@ -1,5 +1,5 @@
 /**
- * Shared site navigation — single source of truth (v6).
+ * Shared site header — call bar + navigation (v7).
  * Tabs: Home, About, Services, Gallery, Blog, Schedule, Contact
  */
 (function () {
@@ -57,7 +57,16 @@
         }).join('\n                    ');
 
         return (
-            '<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="site-navbar">' +
+            '<header class="site-header fixed-top" id="site-header">' +
+            '<div class="site-call-banner" aria-label="Call us now">' +
+            '<div class="container site-call-banner__inner">' +
+            '<span class="site-call-banner__label">Call Us Now</span>' +
+            '<div class="site-call-banner__phones">' +
+            '<a href="tel:3864053015" class="site-call-banner__link">(386) 405-3015</a>' +
+            '<span class="site-call-banner__sep" aria-hidden="true">|</span>' +
+            '<a href="tel:9043770528" class="site-call-banner__link">(904) 377-0528</a>' +
+            '</div></div></div>' +
+            '<nav class="navbar navbar-expand-lg navbar-dark" id="site-navbar">' +
             '<div class="container">' +
             '<a class="navbar-brand" href="' + pre + 'index.html" aria-label="Sunset Home Painting Home">' +
             '<img src="' + pre + 'images/Sunset Home 2.PNG" alt="Sunset Home Painting" class="logo-img">' +
@@ -67,7 +76,7 @@
             '<span class="navbar-toggler-icon"></span></button>' +
             '<div class="collapse navbar-collapse" id="siteNavbarCollapse">' +
             '<ul class="navbar-nav ms-auto site-nav-list">' + links + '</ul>' +
-            '</div></div></nav>'
+            '</div></div></nav></header>'
         );
     }
 
@@ -77,6 +86,7 @@
             return;
         }
         mountEl.outerHTML = buildNav();
+        document.body.classList.add('has-site-header');
     }
 
     if (document.readyState === 'loading') {
