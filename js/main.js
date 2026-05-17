@@ -26,6 +26,11 @@ function initHomeHeroSlideshow() {
     let index = 0;
     let timer = null;
     const intervalMs = parseInt(root.getAttribute('data-autoplay-ms'), 10) || 3000;
+    const hoverZone = root.closest('.home-image-section') || root;
+
+    function isHoverPaused() {
+        return hoverZone.matches(':hover');
+    }
 
     function goTo(nextIndex) {
         index = ((nextIndex % slides.length) + slides.length) % slides.length;
@@ -57,7 +62,19 @@ function initHomeHeroSlideshow() {
 
     function restartAutoplay() {
         stopAutoplay();
-        startAutoplay();
+        if (!isHoverPaused()) {
+            startAutoplay();
+        }
+    }
+
+    function pauseForHover() {
+        stopAutoplay();
+    }
+
+    function resumeAfterHover() {
+        if (!isHoverPaused()) {
+            startAutoplay();
+        }
     }
 
     if (prevBtn) {
@@ -74,11 +91,11 @@ function initHomeHeroSlideshow() {
         });
     }
 
-    root.addEventListener('mouseenter', stopAutoplay);
-    root.addEventListener('mouseleave', startAutoplay);
-    root.addEventListener('focusin', stopAutoplay);
+    hoverZone.addEventListener('mouseenter', pauseForHover);
+    hoverZone.addEventListener('mouseleave', resumeAfterHover);
+    root.addEventListener('focusin', pauseForHover);
     root.addEventListener('focusout', function(e) {
-        if (!root.contains(e.relatedTarget)) {
+        if (!root.contains(e.relatedTarget) && !isHoverPaused()) {
             startAutoplay();
         }
     });
