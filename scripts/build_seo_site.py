@@ -468,7 +468,7 @@ def main():
     print("Wrote blog index")
 
     urls = [
-        "", "index.html", "about.html", "services.html",
+        "", "about.html", "services.html",
         "interior-painting-st-augustine.html", "exterior-painting-st-augustine.html",
         "painting-jacksonville.html", "service-areas.html", "faq.html",
         "gallery.html", "contact.html", "schedule-appointment.html", "blog/index.html",
@@ -476,15 +476,24 @@ def main():
     for post in POSTS:
         urls.append(f"blog/{post['slug']}.html")
 
+    from datetime import date
+    lastmod = date.today().isoformat()
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        loc = SITE if u == "" else f"{SITE}/{u}"
+        loc = SITE + "/" if u == "" else f"{SITE}/{u}"
         if u == "":
-            loc = SITE + "/"
-        priority = "1.0" if u in ("", "index.html") else "0.8"
-        if u.startswith("blog/") and u != "blog/index.html":
+            priority = "1.0"
+        elif u in ("services.html", "interior-painting-st-augustine.html", "exterior-painting-st-augustine.html"):
+            priority = "0.9"
+        elif u.startswith("blog/") and u != "blog/index.html":
             priority = "0.7"
-        sm.append(f"  <url><loc>{loc}</loc><changefreq>monthly</changefreq><priority>{priority}</priority></url>")
+        else:
+            priority = "0.8"
+        changefreq = "weekly" if u == "blog/index.html" else "monthly"
+        sm.append(
+            f"  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod>"
+            f"<changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>"
+        )
     sm.append("</urlset>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
         f.write("\n".join(sm))
