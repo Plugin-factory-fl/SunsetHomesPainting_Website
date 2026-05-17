@@ -174,14 +174,25 @@ h5 {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
 }
 
-.hero-kicker {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 700;
+.hero-subheader {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.65rem, 3.8vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.35;
     color: var(--sunset-gold);
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.75rem;
+    max-width: 920px;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 16px rgba(8, 12, 19, 0.35);
     position: relative;
+}
+
+@media (max-width: 576px) {
+    .hero-subheader {
+        font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+        line-height: 1.4;
+        margin-bottom: 1.25rem;
+    }
 }
 
 .hero-quote {
