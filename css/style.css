@@ -45,6 +45,7 @@ h5 {
 
 .site-header {
     z-index: 1030;
+    background: #11161f;
 }
 
 .site-header .navbar {
@@ -453,21 +454,9 @@ h5 {
     }
 }
 
-/* Offset fixed header (call bar + navbar) */
+/* Offset fixed header — height set via JS (--site-header-height) */
 body.has-site-header {
-    padding-top: 8.75rem;
-}
-
-@media (max-width: 991px) {
-    body.has-site-header {
-        padding-top: 9.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    body.has-site-header {
-        padding-top: 10.25rem;
-    }
+    padding-top: var(--site-header-height, 8.5rem);
 }
 
 .welcome-section {

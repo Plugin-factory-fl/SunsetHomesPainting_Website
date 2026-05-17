@@ -1,5 +1,5 @@
 /**
- * Shared site header — call bar + navigation (v8).
+ * Shared site header — call bar + navigation (v9).
  * Tabs: Home, About, Services, Gallery, Blog, Schedule, Contact
  */
 (function () {
@@ -80,6 +80,17 @@
         );
     }
 
+    function syncHeaderOffset() {
+        var header = document.getElementById('site-header');
+        if (!header) {
+            return;
+        }
+        document.documentElement.style.setProperty(
+            '--site-header-height',
+            header.offsetHeight + 'px'
+        );
+    }
+
     function mount() {
         var mountEl = document.getElementById('site-nav-mount');
         if (!mountEl) {
@@ -87,6 +98,9 @@
         }
         mountEl.outerHTML = buildNav();
         document.body.classList.add('has-site-header');
+        syncHeaderOffset();
+        window.addEventListener('resize', syncHeaderOffset);
+        window.addEventListener('load', syncHeaderOffset);
     }
 
     if (document.readyState === 'loading') {
