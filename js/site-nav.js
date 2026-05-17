@@ -1,5 +1,5 @@
 /**
- * Shared site header — call bar + navigation (v7).
+ * Shared site header — call bar + navigation (v8).
  * Tabs: Home, About, Services, Gallery, Blog, Schedule, Contact
  */
 (function () {
@@ -58,9 +58,9 @@
 
         return (
             '<header class="site-header fixed-top" id="site-header">' +
-            '<div class="site-call-banner" aria-label="Call us now">' +
+            '<div class="site-call-banner" aria-label="Call us now for a free estimate">' +
             '<div class="container site-call-banner__inner">' +
-            '<span class="site-call-banner__label">Call Us Now</span>' +
+            '<span class="site-call-banner__label">Call Us Now for a Free Estimate</span>' +
             '<div class="site-call-banner__phones">' +
             '<a href="tel:3864053015" class="site-call-banner__link">(386) 405-3015</a>' +
             '<span class="site-call-banner__sep" aria-hidden="true">|</span>' +
