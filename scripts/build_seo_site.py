@@ -5,8 +5,14 @@ import os
 SITE = "https://sunsethomepainting.com"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ANALYTICS_HEAD = """  <script src="/js/site-config.js"></script>
-  <script src="/js/analytics.js"></script>"""
+ANALYTICS_HEAD = """  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WPZ1N1KGM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1WPZ1N1KGM');
+  </script>"""
 
 
 def prefix(depth):
