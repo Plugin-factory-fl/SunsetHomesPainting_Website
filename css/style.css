@@ -376,19 +376,50 @@ h5 {
     border-bottom: 4px solid var(--sunset-orange);
 }
 
-.home-call-banner__heading {
-    margin: 0;
+.home-call-banner__label {
+    margin: 0 0 0.75rem;
     font-family: 'Manrope', 'Segoe UI', sans-serif;
-    font-size: clamp(1.75rem, 5vw, 3.25rem);
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    line-height: 1.2;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sunset-gold);
+}
+
+.home-call-banner__phones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
 }
 
 .home-call-banner__link {
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
+    font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
     color: var(--white);
     text-decoration: none;
     transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.home-call-banner__sep {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 300;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (max-width: 480px) {
+    .home-call-banner__sep {
+        display: none;
+    }
+
+    .home-call-banner__phones {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 
 .home-call-banner__link:hover,
