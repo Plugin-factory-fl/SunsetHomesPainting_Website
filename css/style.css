@@ -233,6 +233,88 @@ h5 {
     filter: saturate(1.08) contrast(1.05);
 }
 
+.home-hero-slideshow {
+    position: relative;
+    width: 100%;
+}
+
+.home-hero-slideshow-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.home-hero-slideshow-track {
+    display: flex;
+    transition: transform 0.55s ease-in-out;
+    will-change: transform;
+}
+
+.home-hero-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
+.home-hero-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 650px;
+    filter: saturate(1.08) contrast(1.05);
+}
+
+.home-hero-slideshow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--sunset-indigo);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.home-hero-slideshow-btn:hover {
+    background: var(--sunset-orange);
+    color: #fff;
+}
+
+.home-hero-slideshow-btn:focus-visible {
+    outline: 2px solid var(--sunset-orange);
+    outline-offset: 2px;
+}
+
+.home-hero-slideshow-btn--prev {
+    left: 1rem;
+}
+
+.home-hero-slideshow-btn--next {
+    right: 1rem;
+}
+
+@media (max-width: 576px) {
+    .home-hero-slideshow-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .home-hero-slideshow-btn--prev {
+        left: 0.5rem;
+    }
+
+    .home-hero-slideshow-btn--next {
+        right: 0.5rem;
+    }
+}
+
 .welcome-section {
     padding: 6rem 2rem 4.75rem;
     text-align: center;

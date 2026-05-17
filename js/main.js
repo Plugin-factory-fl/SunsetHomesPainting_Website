@@ -4,11 +4,88 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize gallery modals
     initGalleryModals();
-    
+
     // Initialize form validation
     initFormValidation();
-    
+
+    // Homepage hero image slideshow
+    initHomeHeroSlideshow();
 });
+
+// Homepage hero slideshow (2.jpeg → 9.jpeg → 5.jpg)
+function initHomeHeroSlideshow() {
+    const root = document.querySelector('.home-hero-slideshow');
+    if (!root) return;
+
+    const track = root.querySelector('.home-hero-slideshow-track');
+    const slides = root.querySelectorAll('.home-hero-slide');
+    const prevBtn = root.querySelector('[data-slide-dir="prev"]');
+    const nextBtn = root.querySelector('[data-slide-dir="next"]');
+    if (!track || slides.length === 0) return;
+
+    let index = 0;
+    let timer = null;
+    const intervalMs = parseInt(root.getAttribute('data-autoplay-ms'), 10) || 3000;
+
+    function goTo(nextIndex) {
+        index = ((nextIndex % slides.length) + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        slides.forEach(function(slide, i) {
+            slide.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+        });
+    }
+
+    function next() {
+        goTo(index + 1);
+    }
+
+    function prev() {
+        goTo(index - 1);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(next, intervalMs);
+    }
+
+    function stopAutoplay() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            prev();
+            restartAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            next();
+            restartAutoplay();
+        });
+    }
+
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', function(e) {
+        if (!root.contains(e.relatedTarget)) {
+            startAutoplay();
+        }
+    });
+
+    goTo(0);
+    startAutoplay();
+}
 
 // Gallery Modal Functions
 function initGalleryModals() {
