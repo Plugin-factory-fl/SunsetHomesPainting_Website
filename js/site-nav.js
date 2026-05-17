@@ -1,5 +1,5 @@
 /**
- * Shared site navigation — single source of truth (v5).
+ * Shared site navigation — single source of truth (v6).
  * Tabs: Home, About, Services, Gallery, Blog, Schedule, Contact
  */
 (function () {
@@ -18,6 +18,7 @@
         '': 'home',
         'about.html': 'about',
         'services.html': 'services',
+        'painting-st-augustine.html': 'services',
         'interior-painting-st-augustine.html': 'services',
         'exterior-painting-st-augustine.html': 'services',
         'painting-jacksonville.html': 'services',
