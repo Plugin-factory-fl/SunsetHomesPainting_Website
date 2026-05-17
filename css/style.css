@@ -174,24 +174,23 @@ h5 {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
 }
 
-.hero-subheader {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.65rem, 3.8vw, 2.5rem);
-    font-weight: 600;
-    line-height: 1.35;
+.hero-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+    font-weight: 700;
+    font-family: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--sunset-gold);
-    margin: 0 auto 1.75rem;
-    max-width: 920px;
-    letter-spacing: 0.02em;
-    text-shadow: 0 4px 16px rgba(8, 12, 19, 0.35);
+    margin: 0 auto 1.5rem;
+    max-width: 960px;
+    line-height: 1.45;
     position: relative;
 }
 
 @media (max-width: 576px) {
-    .hero-subheader {
-        font-size: clamp(1.35rem, 5.5vw, 1.75rem);
-        line-height: 1.4;
-        margin-bottom: 1.25rem;
+    .hero-kicker {
+        font-size: clamp(0.95rem, 4.2vw, 1.2rem);
+        letter-spacing: 0.08em;
     }
 }
 

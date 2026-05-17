@@ -1,5 +1,6 @@
 /**
- * Shared site navigation — single source of truth for header tabs on every page.
+ * Shared site navigation — single source of truth (v5).
+ * Tabs: Home, About, Services, Gallery, Blog, Schedule, Contact
  */
 (function () {
     var NAV_ITEMS = [
@@ -27,14 +28,17 @@
         'contact.html': 'contact'
     };
 
-    function basePath() {
-        var path = window.location.pathname;
-        return path.indexOf('/blog/') !== -1 ? '../' : '';
+    function linkPrefix() {
+        var path = window.location.pathname || '';
+        if (path.indexOf('/blog/') !== -1 || path.endsWith('/blog')) {
+            return '../';
+        }
+        return '';
     }
 
     function currentPageId() {
-        var path = window.location.pathname;
-        if (path.indexOf('/blog/') !== -1) {
+        var path = window.location.pathname || '';
+        if (path.indexOf('/blog/') !== -1 || path.endsWith('/blog')) {
             return 'blog';
         }
         var file = path.split('/').pop() || 'index.html';
@@ -42,7 +46,7 @@
     }
 
     function buildNav() {
-        var pre = basePath();
+        var pre = linkPrefix();
         var activeId = currentPageId();
         var links = NAV_ITEMS.map(function (item) {
             var isActive = item.id === activeId;
@@ -68,7 +72,9 @@
 
     function mount() {
         var mountEl = document.getElementById('site-nav-mount');
-        if (!mountEl) return;
+        if (!mountEl) {
+            return;
+        }
         mountEl.outerHTML = buildNav();
     }
 
