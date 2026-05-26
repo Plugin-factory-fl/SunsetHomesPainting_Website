@@ -143,6 +143,7 @@ function initStickyEstimateModal() {
 function openEstimateCallModal() {
     const pre = imagePathPrefix();
     const phoneFormatted = '(904) 377-0528';
+    const email = 'sunsethomepainting@gmail.com';
 
     const modalHTML =
         '<div class="modal fade estimate-call-modal" id="estimateCallModal" tabindex="-1" aria-labelledby="estimateCallModalLabel" aria-hidden="true">' +
@@ -160,7 +161,13 @@ function openEstimateCallModal() {
         '        <p class="estimate-call-modal-lead">Ready for results like this? Copy our number and call Alex, our office manager, for a free estimate.</p>' +
         '        <p class="estimate-call-modal-number" id="estimateCallPhoneDisplay">' + phoneFormatted + '</p>' +
         '        <div class="estimate-call-modal-actions">' +
-        '          <button type="button" class="estimate-call-copy-btn" data-copy="' + phoneFormatted + '">Call Alex, our office manager now!</button>' +
+        '          <button type="button" class="estimate-call-copy-btn estimate-call-copy-btn--block" data-copy="' + phoneFormatted + '">Call Alex, our office manager now!</button>' +
+        '        </div>' +
+        '        <p class="estimate-call-modal-divider" aria-hidden="true">or</p>' +
+        '        <p class="estimate-call-modal-lead">Would you rather email us? Send us details about your project to <strong>' + email + '</strong> and we\'ll reply with a free estimate!</p>' +
+        '        <div class="estimate-call-contact-row">' +
+        '          <p class="estimate-call-modal-number estimate-call-modal-email" id="estimateCallEmailDisplay">' + email + '</p>' +
+        '          <button type="button" class="estimate-call-copy-btn estimate-call-copy-btn--inline" data-copy="' + email + '" aria-label="Copy email address">Copy</button>' +
         '        </div>' +
         '        <p class="estimate-call-copy-feedback" id="estimateCallCopyFeedback" role="status" aria-live="polite"></p>' +
         '      </div>' +
@@ -180,7 +187,10 @@ function openEstimateCallModal() {
 
     modalElement.querySelectorAll('.estimate-call-copy-btn').forEach(function (copyBtn) {
         copyBtn.addEventListener('click', function () {
-            copyPhoneToClipboard(copyBtn.getAttribute('data-copy'), feedback);
+            const fallbackId = copyBtn.classList.contains('estimate-call-copy-btn--inline')
+                ? 'estimateCallEmailDisplay'
+                : 'estimateCallPhoneDisplay';
+            copyToClipboard(copyBtn.getAttribute('data-copy'), feedback, fallbackId);
         });
     });
 
@@ -192,7 +202,7 @@ function openEstimateCallModal() {
     });
 }
 
-function copyPhoneToClipboard(text, feedbackEl) {
+function copyToClipboard(text, feedbackEl, fallbackDisplayId) {
     function showSuccess() {
         if (feedbackEl) {
             feedbackEl.textContent = 'Copied to clipboard!';
@@ -201,9 +211,9 @@ function copyPhoneToClipboard(text, feedbackEl) {
 
     function showError() {
         if (feedbackEl) {
-            feedbackEl.textContent = 'Select and copy: (904) 377-0528';
+            feedbackEl.textContent = 'Select and copy the text above.';
         }
-        const display = document.getElementById('estimateCallPhoneDisplay');
+        const display = fallbackDisplayId ? document.getElementById(fallbackDisplayId) : null;
         if (display) {
             const range = document.createRange();
             range.selectNodeContents(display);

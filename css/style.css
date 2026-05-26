@@ -984,6 +984,34 @@ select:focus {
     user-select: all;
 }
 
+.estimate-call-modal-divider {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    margin: 1.75rem 0 1.25rem;
+    max-width: none;
+}
+
+.estimate-call-contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0 auto 0.5rem;
+    max-width: 100%;
+}
+
+.estimate-call-modal-email {
+    margin-bottom: 0;
+    text-align: left;
+    flex: 1 1 12rem;
+    min-width: 0;
+    word-break: break-word;
+}
+
 .estimate-call-modal-actions {
     display: flex;
     flex-direction: column;
@@ -1004,6 +1032,18 @@ select:focus {
     cursor: pointer;
     box-shadow: 0 10px 28px rgba(31, 157, 67, 0.28);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.estimate-call-copy-btn--block {
+    width: 100%;
+}
+
+.estimate-call-copy-btn--inline {
+    flex: 0 0 auto;
+    padding: 0.85rem 1.35rem;
+    font-size: 1rem;
+    white-space: nowrap;
+    align-self: center;
 }
 
 .estimate-call-copy-btn:hover {
