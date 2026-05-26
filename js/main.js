@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Homepage hero image slideshow
     initHomeHeroSlideshow();
 
-    // Site-wide sticky CTA (schedule -> call)
-    initStickyCallButton();
+    // Site-wide sticky CTA (opens estimate modal with copyable phone)
+    initStickyEstimateModal();
 });
 
 // Homepage hero slideshow (22/23 + 24/25 before/after first)
@@ -107,13 +107,22 @@ function initHomeHeroSlideshow() {
     startAutoplay();
 }
 
-function initStickyCallButton() {
+function imagePathPrefix() {
+    var path = window.location.pathname || '';
+    if (path.indexOf('/blog/') !== -1 || path.endsWith('/blog')) {
+        return '../images/';
+    }
+    return 'images/';
+}
+
+function initStickyEstimateModal() {
     const btn = document.querySelector('.sticky-cta-button');
     if (!btn) return;
 
-    const tel = 'tel:9043770528';
-    btn.setAttribute('aria-label', 'Call for free estimate now at (904) 377-0528');
-    btn.setAttribute('href', tel);
+    btn.setAttribute('href', '#');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('aria-haspopup', 'dialog');
+    btn.setAttribute('aria-label', 'Call for free estimate — view photos and copy office phone number');
 
     const span = btn.querySelector('span');
     if (span) {
@@ -124,6 +133,107 @@ function initStickyCallButton() {
     if (icon) {
         icon.className = 'fas fa-phone';
     }
+
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openEstimateCallModal();
+    });
+}
+
+function openEstimateCallModal() {
+    const pre = imagePathPrefix();
+    const phoneFormatted = '(904) 377-0528';
+    const phoneDigits = '9043770528';
+
+    const modalHTML =
+        '<div class="modal fade estimate-call-modal" id="estimateCallModal" tabindex="-1" aria-labelledby="estimateCallModalLabel" aria-hidden="true">' +
+        '  <div class="modal-dialog modal-dialog-centered modal-lg">' +
+        '    <div class="modal-content">' +
+        '      <div class="modal-header">' +
+        '        <h5 class="modal-title" id="estimateCallModalLabel">Free Exterior Painting Estimate</h5>' +
+        '        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
+        '      </div>' +
+        '      <div class="modal-body">' +
+        '        <div class="blog-before-after" role="group" aria-label="Before and after exterior painting in St Augustine">' +
+        '          <figure><img src="' + pre + '22.jpeg" alt="Before exterior painting St Augustine FL" width="600" height="800" loading="lazy"><figcaption>Before</figcaption></figure>' +
+        '          <figure><img src="' + pre + '23.jpeg" alt="After exterior painting St Augustine FL" width="600" height="800" loading="lazy"><figcaption>After</figcaption></figure>' +
+        '        </div>' +
+        '        <p class="estimate-call-modal-lead">Ready for results like this? Copy our number and call Alex, our office manager, for a free estimate.</p>' +
+        '        <p class="estimate-call-modal-number" id="estimateCallPhoneDisplay">' + phoneFormatted + '</p>' +
+        '        <div class="estimate-call-modal-actions">' +
+        '          <button type="button" class="estimate-call-copy-btn" data-copy="' + phoneFormatted + '" data-label="formatted">Call Alex, our office manager now!</button>' +
+        '          <button type="button" class="estimate-call-copy-btn estimate-call-copy-btn--secondary" data-copy="' + phoneDigits + '" data-label="digits">Copy number without formatting</button>' +
+        '        </div>' +
+        '        <p class="estimate-call-copy-feedback" id="estimateCallCopyFeedback" role="status" aria-live="polite"></p>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+
+    const existingModal = document.getElementById('estimateCallModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const modalElement = document.getElementById('estimateCallModal');
+    const feedback = document.getElementById('estimateCallCopyFeedback');
+
+    modalElement.querySelectorAll('.estimate-call-copy-btn').forEach(function (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+            copyPhoneToClipboard(copyBtn.getAttribute('data-copy'), feedback);
+        });
+    });
+
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+
+    modalElement.addEventListener('hidden.bs.modal', function () {
+        modalElement.remove();
+    });
+}
+
+function copyPhoneToClipboard(text, feedbackEl) {
+    function showSuccess() {
+        if (feedbackEl) {
+            feedbackEl.textContent = 'Copied! Paste the number into your phone app to call Alex.';
+        }
+    }
+
+    function showError() {
+        if (feedbackEl) {
+            feedbackEl.textContent = 'Select and copy: (904) 377-0528';
+        }
+        const display = document.getElementById('estimateCallPhoneDisplay');
+        if (display) {
+            const range = document.createRange();
+            range.selectNodeContents(display);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showSuccess).catch(showError);
+        return;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        showSuccess();
+    } catch (err) {
+        showError();
+    }
+    document.body.removeChild(textarea);
 }
 
 // Gallery Modal Functions
