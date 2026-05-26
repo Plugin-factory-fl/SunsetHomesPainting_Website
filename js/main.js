@@ -10,9 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Homepage hero image slideshow
     initHomeHeroSlideshow();
+
+    // Site-wide sticky CTA (schedule -> call)
+    initStickyCallButton();
 });
 
-// Homepage hero slideshow (20/21 before-after first, then more project photos)
+// Homepage hero slideshow (22/23 + 24/25 before/after first)
 function initHomeHeroSlideshow() {
     const root = document.querySelector('.home-hero-slideshow');
     if (!root) return;
@@ -102,6 +105,25 @@ function initHomeHeroSlideshow() {
 
     goTo(0);
     startAutoplay();
+}
+
+function initStickyCallButton() {
+    const btn = document.querySelector('.sticky-cta-button');
+    if (!btn) return;
+
+    const tel = 'tel:9043770528';
+    btn.setAttribute('aria-label', 'Call Us Now at (904) 377-0528');
+    btn.setAttribute('href', tel);
+
+    const span = btn.querySelector('span');
+    if (span) {
+        span.textContent = 'Call Us Now!';
+    }
+
+    const icon = btn.querySelector('i');
+    if (icon) {
+        icon.className = 'fas fa-phone';
+    }
 }
 
 // Gallery Modal Functions

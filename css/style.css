@@ -934,13 +934,13 @@ select:focus {
     bottom: 20px;
     right: 20px;
     z-index: 1050;
-    background: linear-gradient(135deg, var(--sunset-orange) 0%, #f6b06b 100%);
+    background: linear-gradient(135deg, #1f9d43 0%, #43d37a 100%);
     color: var(--white);
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
+    padding: 1.1rem 2rem;
+    font-size: 1.08rem;
     font-weight: 700;
     border-radius: 50px;
-    box-shadow: 0 12px 30px rgba(22, 28, 39, 0.38);
+    box-shadow: 0 16px 40px rgba(31, 157, 67, 0.30);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -952,7 +952,7 @@ select:focus {
 
 .sticky-cta-button:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 16px 36px rgba(22, 28, 39, 0.45);
+    box-shadow: 0 20px 55px rgba(31, 157, 67, 0.38);
     color: var(--white);
 }
 
