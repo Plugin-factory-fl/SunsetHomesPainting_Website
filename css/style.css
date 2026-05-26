@@ -931,20 +931,21 @@ select:focus {
 
 .sticky-cta-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 50px;
+    right: 50px;
     z-index: 1050;
     background: linear-gradient(135deg, #1f9d43 0%, #43d37a 100%);
     color: var(--white);
-    padding: 1.1rem 2rem;
-    font-size: 1.08rem;
+    padding: 1.43rem 2.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     border-radius: 50px;
     box-shadow: 0 16px 40px rgba(31, 157, 67, 0.30);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.65rem;
+    white-space: nowrap;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
@@ -1012,10 +1013,10 @@ select:focus {
     }
 
     .sticky-cta-button {
-        bottom: 15px;
-        right: 15px;
-        padding: 0.875rem 1.25rem;
-        font-size: 0.9rem;
+        bottom: 45px;
+        right: 45px;
+        padding: 1.14rem 1.63rem;
+        font-size: 1.17rem;
     }
 }
 
@@ -1033,10 +1034,10 @@ select:focus {
     }
 
     .sticky-cta-button {
-        bottom: 10px;
-        right: 10px;
-        padding: 0.75rem 1rem;
-        font-size: 0.85rem;
+        bottom: 40px;
+        right: 40px;
+        padding: 0.98rem 1.3rem;
+        font-size: 1.1rem;
         border-radius: 40px;
     }
 }

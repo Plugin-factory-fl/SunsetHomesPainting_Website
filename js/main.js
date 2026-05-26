@@ -112,12 +112,12 @@ function initStickyCallButton() {
     if (!btn) return;
 
     const tel = 'tel:9043770528';
-    btn.setAttribute('aria-label', 'Call Us Now at (904) 377-0528');
+    btn.setAttribute('aria-label', 'Call for free estimate now at (904) 377-0528');
     btn.setAttribute('href', tel);
 
     const span = btn.querySelector('span');
     if (span) {
-        span.textContent = 'Call Us Now!';
+        span.textContent = 'Call for Free Estimate Now';
     }
 
     const icon = btn.querySelector('i');
