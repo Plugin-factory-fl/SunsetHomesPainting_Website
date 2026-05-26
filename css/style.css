@@ -1090,6 +1090,21 @@ select:focus {
     transform: scale(1.03);
 }
 
+/* Avoid full-page overlay if showcase image omits .service-card-image-link wrapper */
+.service-card-showcase > .service-card-image,
+.service-card-image-link:empty + .service-card-image {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    max-height: 22rem;
+    transform: none !important;
+}
+
+.service-card-showcase:hover > .service-card-image {
+    transform: none !important;
+}
+
 .service-card-body {
     padding: 1.5rem 2rem 2rem;
 }
