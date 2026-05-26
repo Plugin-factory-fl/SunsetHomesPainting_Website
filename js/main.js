@@ -143,7 +143,6 @@ function initStickyEstimateModal() {
 function openEstimateCallModal() {
     const pre = imagePathPrefix();
     const phoneFormatted = '(904) 377-0528';
-    const phoneDigits = '9043770528';
 
     const modalHTML =
         '<div class="modal fade estimate-call-modal" id="estimateCallModal" tabindex="-1" aria-labelledby="estimateCallModalLabel" aria-hidden="true">' +
@@ -161,8 +160,7 @@ function openEstimateCallModal() {
         '        <p class="estimate-call-modal-lead">Ready for results like this? Copy our number and call Alex, our office manager, for a free estimate.</p>' +
         '        <p class="estimate-call-modal-number" id="estimateCallPhoneDisplay">' + phoneFormatted + '</p>' +
         '        <div class="estimate-call-modal-actions">' +
-        '          <button type="button" class="estimate-call-copy-btn" data-copy="' + phoneFormatted + '" data-label="formatted">Call Alex, our office manager now!</button>' +
-        '          <button type="button" class="estimate-call-copy-btn estimate-call-copy-btn--secondary" data-copy="' + phoneDigits + '" data-label="digits">Copy number without formatting</button>' +
+        '          <button type="button" class="estimate-call-copy-btn" data-copy="' + phoneFormatted + '">Call Alex, our office manager now!</button>' +
         '        </div>' +
         '        <p class="estimate-call-copy-feedback" id="estimateCallCopyFeedback" role="status" aria-live="polite"></p>' +
         '      </div>' +
@@ -197,7 +195,7 @@ function openEstimateCallModal() {
 function copyPhoneToClipboard(text, feedbackEl) {
     function showSuccess() {
         if (feedbackEl) {
-            feedbackEl.textContent = 'Copied! Paste the number into your phone app to call Alex.';
+            feedbackEl.textContent = 'Copied to clipboard!';
         }
     }
 

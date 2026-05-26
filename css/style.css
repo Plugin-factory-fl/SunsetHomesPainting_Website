@@ -1012,13 +1012,6 @@ select:focus {
     color: var(--white);
 }
 
-.estimate-call-copy-btn--secondary {
-    background: linear-gradient(135deg, #26364f 0%, #3b5579 100%);
-    box-shadow: 0 10px 24px rgba(37, 52, 77, 0.22);
-    font-size: 0.95rem;
-    font-weight: 600;
-}
-
 .estimate-call-copy-feedback {
     text-align: center;
     margin: 1rem 0 0;
