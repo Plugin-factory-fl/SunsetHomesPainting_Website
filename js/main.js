@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHomeHeroSlideshow();
 });
 
-// Homepage hero slideshow (2.jpeg + before/after pairs)
+// Homepage hero slideshow (20/21 before-after first, then more project photos)
 function initHomeHeroSlideshow() {
     const root = document.querySelector('.home-hero-slideshow');
     if (!root) return;
